@@ -183,8 +183,8 @@ jobs:
           cd qtbase
           git config --global user.email "root@example.com"
           git config --global user.name "root"
-          git fetch origin 76d12eea2252c5e537dff15b103bdc1f925cf760
-          git cherry-pick 76d12eea2252c5e537dff15b103bdc1f925cf760
+          git fetch origin 8c47a86eecd286dbe66ca55ed4deaaf0f901d13b
+          git cherry-pick 8c47a86eecd286dbe66ca55ed4deaaf0f901d13b
           ./configure -xplatform wasm-emscripten -opensource -confirm-license -prefix ~/qt -nomake examples
           make install
       - uses: actions/checkout@v4
