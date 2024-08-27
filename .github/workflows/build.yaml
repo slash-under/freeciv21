@@ -128,7 +128,7 @@ jobs:
     # if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     needs: clang-format
     env:
-      QT_VERSION: v5.15.8-lts-lgpl
+      QT_VERSION: v6.2.8-lts-lgpl
     steps:
       - uses: actions/checkout@v4
       - name: Cache Qt build
@@ -145,7 +145,9 @@ jobs:
             ninja-build \
             clang \
             python3 \
-            gettext
+            gettext \
+            qt6-base-dev \
+            qmake6
       - uses: actions/checkout@v4
         name: Checkout emsdk
         with:
