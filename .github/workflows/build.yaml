@@ -127,7 +127,7 @@ jobs:
     # we only want the wasm build
     # if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     env:
-      QT_VERSION: v6.2.8-lts-lgpl
+      QT_VERSION: v6.4.3
     steps:
       - uses: actions/checkout@v4
       - name: Cache Qt build
@@ -185,6 +185,7 @@ jobs:
           git config --global user.email "root@example.com"
           git config --global user.name "root"
           export QT_HOST_PATH=/usr/lib/qt6
+          export CMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt6HostInfo
           ./configure -xplatform wasm-emscripten -opensource -confirm-license -prefix ~/qt -nomake examples
           make install
       - uses: actions/checkout@v4
