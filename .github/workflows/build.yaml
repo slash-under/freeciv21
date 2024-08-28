@@ -184,7 +184,8 @@ jobs:
           cd qtbase
           git config --global user.email "root@example.com"
           git config --global user.name "root"
-          ./configure -xplatform wasm-emscripten -opensource -confirm-license -prefix ~/qt -nomake examples -DQT_HOST_PATH=/usr/lib/qt6
+          export QT_HOST_PATH=/usr/lib/qt6
+          ./configure -xplatform wasm-emscripten -opensource -confirm-license -prefix ~/qt -nomake examples
           make install
       - uses: actions/checkout@v4
         if: steps.qtcache.outputs.cache-hit != 'true'
