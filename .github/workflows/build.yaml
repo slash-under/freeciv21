@@ -123,10 +123,9 @@ jobs:
 
   wasm:
     name: "WebAssembly"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # we only want the wasm build
     # if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-    needs: clang-format
     env:
       QT_VERSION: v6.2.8-lts-lgpl
     steps:
@@ -156,8 +155,8 @@ jobs:
       - name: Install emsdk
         run: |
           cd emsdk
-          ./emsdk install latest
-          ./emsdk activate latest
+          ./emsdk install 3.0.0
+          ./emsdk activate 3.0.0
           touch prime.c
           source emsdk_env.sh
           emcc -sUSE_ZLIB=1 -sUSE_SDL=2 -sUSE_SDL_MIXER=2 prime.c -o prime.o
