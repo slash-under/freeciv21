@@ -187,6 +187,8 @@ jobs:
           export QT_HOST_PATH=/usr/lib/qt6
           export CMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt6HostInfo
           export Qt6HostInfo_DIR=/usr/lib/x86_64-linux-gnu/cmake/Qt6HostInfo/
+          ls /usr/lib/x86_64-linux-gnu/cmake/Qt6HostInfo/
+          ls /usr/lib/qt6
           ./configure -xplatform wasm-emscripten -opensource -confirm-license -prefix ~/qt -nomake examples
           make install
       - uses: actions/checkout@v4
